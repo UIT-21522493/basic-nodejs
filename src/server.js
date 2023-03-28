@@ -9,6 +9,9 @@ require('dotenv').config();
 const app = express()
 const port = process.env.PORT;
 
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 //setup view engine
 configViewEngine(app);
 
@@ -17,5 +20,5 @@ initWebRoute(app);
 
 
 app.listen(port, () => {
-    console.log(`Example app listening on port http://localhost:${port}`)
+    console.log(`Example app listening on port ${port}`)
 })
